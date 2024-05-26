@@ -1,0 +1,26 @@
+.add-book-form {
+  margin-bottom: 20px;
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  button {
+    display: block;
+    width: 100%;
+  }
+
+  .publication-date-input::before {
+    content: "Publication Date";
+    color: #999;
+  }
+}

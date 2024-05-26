@@ -1,0 +1,97 @@
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$delete-color: #e74c3c;
+$edit-color: rgb(198, 162, 57);
+$favorite-color: #e74c3c;
+$background-color: #f4f4f4;
+$font-family: "Poppins", sans-serif;
+$border-radius: 4px;
+$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+}
+
+body {
+  font-family: $font-family;
+  background-color: $background-color;
+  color: #333;
+  margin: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+
+  &.booklist-page {
+    & .sub-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+  }
+}
+
+h1 {
+  color: $primary-color;
+  margin-bottom: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: $primary-color;
+  color: #fff;
+  text-decoration: none;
+  border-radius: $border-radius;
+  transition: background-color 0.3s;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+
+  &.secondary {
+    background-color: $secondary-color;
+
+    &:hover {
+      background-color: darken($secondary-color, 10%);
+    }
+  }
+
+  &.delete-btn {
+    background-color: $delete-color;
+
+    &:hover {
+      background-color: darken($delete-color, 10%);
+    }
+  }
+
+  &.edit-btn {
+    background-color: $edit-color;
+
+    &:hover {
+      background-color: darken($edit-color, 10%);
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}

@@ -1,0 +1,100 @@
+.landing-page {
+  color: #000;
+
+  .hero {
+    background: url("https://miro.medium.com/v2/resize:fit:1200/1*6Jp3vJWe7VFlFHZ9WhSJng.jpeg")
+      no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    padding: 80px 0;
+    text-align: center;
+
+    .container {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 8px;
+
+      h2 {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 20px;
+        margin-bottom: 30px;
+      }
+
+      .btn {
+        &.primary {
+          background: #007bff;
+          color: #fff;
+          padding: 10px 25px;
+          text-decoration: none;
+          border-radius: 5px;
+          font-size: 18px;
+
+          &:hover {
+            background: #0056b3;
+          }
+        }
+      }
+    }
+  }
+
+  .features {
+    background: #f8f9fa;
+    padding: 60px 0;
+
+    .container {
+      h3 {
+        font-size: 32px;
+        margin-bottom: 40px;
+        text-align: center;
+        color: #000;
+      }
+
+      .feature-list {
+        display: flex;
+        justify-content: space-around;
+
+        .feature-item {
+          background: #fff;
+          border: 1px solid #ddd;
+          padding: 20px;
+          width: 30%;
+          text-align: center;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+          img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+          }
+
+          h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #000;
+          }
+
+          p {
+            font-size: 16px;
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    background: #3e4e50;
+    text-align: center;
+    padding: 20px 0;
+
+    .container {
+      p {
+        margin: 0;
+      }
+    }
+  }
+}

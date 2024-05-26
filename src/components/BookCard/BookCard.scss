@@ -1,0 +1,56 @@
+.book-card {
+  display: flex;
+  margin-bottom: 20px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .book-cover {
+    width: 150px;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .book-info {
+    padding: 16px;
+    flex: 1;
+
+    h3 {
+      margin-bottom: 8px;
+      color: #3498db;
+    }
+
+    p {
+      margin-bottom: 8px;
+      color: #666;
+    }
+
+    .book-actions {
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+
+      .btn {
+        margin-right: 8px;
+      }
+
+      .favorite-icon {
+        font-size: 24px;
+        color: #ccc;
+        cursor: pointer;
+        margin-right: 16px;
+        transition: color 0.3s;
+
+        &.favorite {
+          color: #e74c3c;
+        }
+
+        &:hover {
+          color: lighten(#e74c3c, 20%);
+        }
+      }
+    }
+  }
+}
