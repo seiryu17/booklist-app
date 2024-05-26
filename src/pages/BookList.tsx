@@ -22,6 +22,8 @@ const Booklist: React.FC = () => {
   });
 
   const [isOpen, setIsOpen] = useState(false);
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [bookToDelete, setBookToDelete] = useState<Book | null>(null);
   const [favorites, setFavorites] = useLocalStorage<number[]>("favorites", []);
   const [localBooks, setLocalBooks] = useLocalStorage<Book[]>("localBooks", []);
   const [currentPage, setCurrentPage] = useState(1);
@@ -45,9 +47,19 @@ const Booklist: React.FC = () => {
     setLocalBooks([book, ...localBooks]);
   };
 
-  const handleDeleteBook = (id: number) => {
-    if (window.confirm("Are you sure you want to delete this book?")) {
-      setLocalBooks(localBooks.filter((book) => book.id !== id));
+  const openDeleteModal = (book: Book) => {
+    setBookToDelete(book);
+    setDeleteModalOpen(true);
+  };
+
+  const handleDeleteBook = () => {
+    if (bookToDelete) {
+      const updatedBooks = localBooks.filter(
+        (book) => book.id !== bookToDelete.id
+      );
+      setLocalBooks(updatedBooks);
+      setDeleteModalOpen(false);
+      setBookToDelete(null);
     }
   };
 
@@ -73,6 +85,22 @@ const Booklist: React.FC = () => {
       <Modal title="Add New Book" isOpen={isOpen} onClose={onCloseModal}>
         <AddBookForm onAddBook={handleAddBook} onClose={onCloseModal} />
       </Modal>
+      <Modal
+        title="Confirm Delete"
+        isOpen={deleteModalOpen}
+        onClose={() => setDeleteModalOpen(false)}
+      >
+        <p>Are you sure you want to delete this book?</p>
+        <button onClick={handleDeleteBook} className="btn delete-btn">
+          Delete
+        </button>
+        <button
+          onClick={() => setDeleteModalOpen(false)}
+          className="btn cancel-btn"
+        >
+          Cancel
+        </button>
+      </Modal>
       <div className="container booklist-page">
         <Header />
         <div className="sub-header">
@@ -86,7 +114,7 @@ const Booklist: React.FC = () => {
           localBooks={localBooks}
           favorites={favorites}
           onToggleFavorite={handleToggleFavorite}
-          onDelete={handleDeleteBook}
+          onDelete={openDeleteModal}
           onEditBook={handleSaveEdit}
         />
         <Pagination

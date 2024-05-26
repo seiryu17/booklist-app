@@ -11,7 +11,7 @@ interface BookCardProps {
   localBooks: Book[];
   isFavorite: boolean;
   onToggleFavorite: (id: number) => void;
-  onDelete: (id: number) => void;
+  onDelete: (book: Book) => void;
   onEditBook: (updatedBook: Book) => void;
 }
 
@@ -34,8 +34,7 @@ const BookCard: React.FC<BookCardProps> = ({
     setIsEdit(false);
   };
 
-  const isLocalBook =
-    localBooks && localBooks.some((b: Book) => b.id === book.id);
+  const isLocalBook = localBooks.some((b: Book) => b.id === book.id);
 
   return (
     <div className="book-card">
@@ -66,15 +65,15 @@ const BookCard: React.FC<BookCardProps> = ({
                 View Details
               </Link>
               <button
-                onClick={() => onDelete(book.id)}
-                disabled={!isLocalBook && true}
+                onClick={() => onDelete(book)}
+                disabled={!isLocalBook}
                 className={`btn delete-btn ${!isLocalBook ? "disabled" : ""}`}
               >
                 Delete
               </button>
               <button
                 onClick={handleEdit}
-                disabled={!isLocalBook && true}
+                disabled={!isLocalBook}
                 className={`btn edit-btn ${!isLocalBook ? "disabled" : ""}`}
               >
                 Edit

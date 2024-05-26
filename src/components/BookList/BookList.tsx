@@ -7,7 +7,7 @@ interface BookListProps {
   localBooks: Book[];
   favorites: number[];
   onToggleFavorite: (id: number) => void;
-  onDelete: (id: number) => void;
+  onDelete: (book: Book) => void;
   onEditBook: (updatedBook: Book) => void;
 }
 
